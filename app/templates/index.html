@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="jumbotron bg-transparent text-center">
+    <h1 class="display-3" align=center>Welcome
+        <marquee> 
+            <img src='\static\images\1.jpg' align=top alt="No image" style="width:800px;height:500px;">
+            <img src='\static\images\3.png' align=top alt="No image" style="width:800px;height:500px;">
+            <img src='\static\images\2.jpg' align=top alt="No image" style="width:800px;height:500px;">        
+        </marquee>
+    </h1>
+        
+        <p class="lead">Use AI based Damage Recognizer</p>
+        <hr class="my-2">
+        <p>Using object detection and CNN</p>
+        
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/upload" role="button">Upload Image</a>
+        </p>
+    </div>
+    {% endblock %}
+    
+    
+    

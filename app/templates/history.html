@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+    body{
+        background-image: url('/static/images/bg_2.png');
+        
+    }
+    /*.container{
+        background-color: rgba(85, 71, 71, 0.98);
+    }*/
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-4">
+            {% include "notify.html" %}
+            <h1>Prediction History</h1>
+            <table class="table table-responsive table-sm ">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Image</th>
+                        <th>Results</th>
+                        <th>Date and Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for item in data %}
+                    <tr>                           
+                        <td><img src="{{item.file}}"  alt="{{item.file}}" width="300"></td>
+                        <td class="align-middle"><span class="display-3">{{item.result.label}}</span></td>
+                        <td scope="row"><i class="fa fa-calendar" aria-hidden="true"></i> {{item.date}}</td>
+                        <td><form method="POST" action="/delete">
+                            <input type="hidden" name="imgid" value="{{item.imgid}}">
+                            <input type="hidden" name="id" value="{{item.id}}">
+                            <button class="btn btn-warning" title="remove item"><i class="fas fa-times text-danger"></i> delete</button>
+                        </form></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+</div>
+{% endblock %}
